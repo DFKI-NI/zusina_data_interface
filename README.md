@@ -7,7 +7,7 @@ Um die Schnittstelle zu implementieren muss das Django Framework installiert wer
 
 Mit Django kann dann eine REST API erstellt werden, dafür muss ein Django Projekt erstellt werden 
 ```
-django-admin startproject neueapi
+django-admin startproject zusina-api
 ```
 
  und es müssen einige Programme installiert werden.
