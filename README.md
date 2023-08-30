@@ -5,7 +5,12 @@ Im Forschungsprojekt ZuSiNa wurde eine Schnittstelle entwickelt, die zu Textilpr
 ## Installation
 Um die Schnittstelle zu implementieren muss das Django Framework installiert werden. Auf der Seite https://docs.djangoproject.com/en/4.2/intro/install/ wird beschrieben wie dies geht.
 
-Mit Django kann dann eine REST API erstellt werden, dafür muss ein Django Projekt erstellt werden (https://docs.djangoproject.com/en/4.2/intro/tutorial01/) und es müssen einige Programme installiert werden.
+Mit Django kann dann eine REST API erstellt werden, dafür muss ein Django Projekt erstellt werden 
+```
+django-admin startproject neueapi
+```
+
+ und es müssen einige Programme installiert werden.
 
 ```
 pip install djangorestframework 
