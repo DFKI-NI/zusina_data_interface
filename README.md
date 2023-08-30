@@ -7,7 +7,7 @@ Um die Schnittstelle zu implementieren muss das Django Framework installiert wer
 
 Mit Django kann dann eine REST API erstellt werden, dafür muss ein Django Projekt erstellt werden 
 ```
-django-admin startproject zusina-api
+django-admin startproject zusina_api
 ```
 
  und es müssen einige Programme installiert werden.
@@ -15,10 +15,12 @@ django-admin startproject zusina-api
 ```
 pip install djangorestframework 
 pip install django-filter  # Bibliothek zum erstellen von Filtern für die Daten
+pip install pandas
 ```
 
 ## Implementation
-Das django Restframework muss zu den installierten Apps in der settings.py hinzugefügt werden
+In dem Projektordner zusina_api müsste eine Datei namens manage.py und ein Ordner zusina_api sein. 
+In dem Ordner zusina_api befindet sich die Datei settings.py in die wir nun folgendes einfügen:
 
 ```
 INSTALLED_APPS = [
@@ -29,7 +31,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 ]
 ```
-Um später Authentifizierung zu ermöglichen fügen wir folgendes der settings.py hinzu:
+Um später Authentifizierung zu ermöglichen fügen wir folgendes ebenfalls der settings.py hinzu:
 
 ```
 REST_FRAMEWORK = {
@@ -43,7 +45,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-Dem Projekt werden dann die Dateien aus diesem Repo hinzugefügt. Diese liegen im selben Ordner wie z.B. settings.py.
+Dem Projekt werden dann die Dateien aus diesem Repo hinzugefügt. Diese kommen in den selben Ordner wie settings.py.
 
 ```
 models.py
@@ -62,6 +64,19 @@ Es sollte noch ein superuser hinzugefügt werden, um auf die Datenbanken über /
 
 ```
 python manage.py createsuperuser --username <superusername>
+```
+
+Bevor die Schnittstelle aufgerufen werden kann müssen noch die Adressen registriert werden. Dies geschieht durch hinzufügen der folgenden Zeilen zu der Datei urls.py.
+
+```
+...
+from zusina_api.views import ProductAPIView, ProductDetailAPIView
+
+urlpatterns = [
+    ...
+    path('api/', ProductAPIView.as_view()),
+    path('api/alldata', ProductDetailAPIView.as_view()),
+]
 ```
 
 Danach kann der Server gestartet werden.
