@@ -13,4 +13,5 @@ class Product(models.Model):
     enddate = models.DateField(null=True)
 
     def __str__(self):
+        '''Return some product informations as a String. This is needed by the serializer.'''
         return self.brand + " " + self.productid
