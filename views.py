@@ -22,15 +22,21 @@ class ProductFilter(df.FilterSet):
     for k in Product.objects.values_list('brand').distinct():
         brand_choices.append((k[0], k[0]))
 
-    brand = df.ChoiceFilter(field_name='brand', choices=brand_choices, label='Brands')
-    product_description = df.CharFilter(field_name='product_description', lookup_expr='contains', label='Product description')
+    brand = df.ChoiceFilter(field_name='brand', choices=brand_choices,
+                            label='Brands')
+    product_description = df.CharFilter(field_name='product_description',
+                                        lookup_expr='contains',
+                                        label='Product description')
     productid = df.CharFilter(field_name='productid', lookup_expr='exact')
     brandid = df.CharFilter(field_name='brandid', lookup_expr='exact')
     ecolabel = df.ChoiceFilter(choices=STATUS_CHOICES, field_name='ecolabel')
-    ecolabel_informations = df.CharFilter(field_name='ecolabel_informations', lookup_expr='contains', label='Ecolabel informations')
-    startdate = df.DateFilter(field_name='startdate', widget=forms.DateInput(attrs={'type':'date'}))
-    enddate = df.DateFilter(field_name='enddate', widget=forms.DateInput(attrs={'type':'date'}))
-
+    ecolabel_informations = df.CharFilter(field_name='ecolabel_informations',
+                                          lookup_expr='contains',
+                                          label='Ecolabel informations')
+    startdate = df.DateFilter(field_name='startdate',
+                              widget=forms.DateInput(attrs={'type': 'date'}))
+    enddate = df.DateFilter(field_name='enddate',
+                            widget=forms.DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = Product
@@ -41,9 +47,13 @@ class ProductAPIView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    filter_backends = [filters.SearchFilter, DjangoFilterBackend, filters.OrderingFilter]
-    search_fields = ["brand", "product_description", "is_manufacturer", "productid", "brandid", "ecolabel", "ecolabel_informations", "startdate", "enddate"]
+    filter_backends = [filters.SearchFilter, DjangoFilterBackend,
+                       filters.OrderingFilter]
+    search_fields = ["brand", "product_description", "is_manufacturer",
+                     "productid", "brandid", "ecolabel",
+                     "ecolabel_informations", "startdate", "enddate"]
     filterset_class = ProductFilter
+
 
 class ProductDetailAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -59,14 +69,19 @@ class ProductDetailAPIView(APIView):
         response = HttpResponse(content_type='text/csv')
 
         writer = csv.writer(response)
-        writer.writerow(['Brand', 'Product_description', 'is_manufacturer', 'ProductID', 'BrandID', 'Ecolabel',
+        writer.writerow(['Brand', 'Product_description', 'is_manufacturer',
+                         'ProductID', 'BrandID', 'Ecolabel',
                          'Ecolabel_informations', 'StartDate', 'EndDate'])
-        for product in Product.objects.all().values_list('brand', 'product_description', 'is_manufacturer', 'productid',
-                                                         'brandid', 'ecolabel', 'ecolabel_informations', 'startdate',
-                                                         'enddate'):
+        for prod in Product.objects.all().values_list('brand',
+                                                      'product_description',
+                                                      'is_manufacturer',
+                                                      'productid',
+                                                      'brandid', 'ecolabel',
+                                                      'ecolabel_informations',
+                                                      'startdate',
+                                                      'enddate'):
 
-            writer.writerow(product)
+            writer.writerow(prod)
 
         response['Content-Disposition'] = 'attachment; filename="products.csv"'
         return response
-        #return Response(serializer.data, status=status.HTTP_200_OK)
