@@ -11,6 +11,7 @@ from rest_framework import permissions
 from django_filters import rest_framework as df
 from django import forms
 
+
 class ProductFilter(df.FilterSet):
     STATUS_CHOICES = (
         ('Blauer Engel', 'Blauer Engel'),
@@ -20,7 +21,6 @@ class ProductFilter(df.FilterSet):
     brand_choices = []
     for k in Product.objects.values_list('brand').distinct():
         brand_choices.append((k[0], k[0]))
-
 
     brand = df.ChoiceFilter(field_name='brand', choices=brand_choices, label='Brands')
     product_description = df.CharFilter(field_name='product_description', lookup_expr='contains', label='Product description')
