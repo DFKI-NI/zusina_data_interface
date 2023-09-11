@@ -22,13 +22,10 @@ class ProductFilter(df.FilterSet):
         brand_choices.append((k[0], k[0]))
 
 
-
-    #brand = df.CharFilter(field_name='brand', lookup_expr='contains')
     brand = df.ChoiceFilter(field_name='brand', choices=brand_choices, label='Brands')
     product_description = df.CharFilter(field_name='product_description', lookup_expr='contains', label='Product description')
     productid = df.CharFilter(field_name='productid', lookup_expr='exact')
     brandid = df.CharFilter(field_name='brandid', lookup_expr='exact')
-    #ecolabel = df.CharFilter(field_name='ecolabel', lookup_expr='contains')
     ecolabel = df.ChoiceFilter(choices=STATUS_CHOICES, field_name='ecolabel')
     ecolabel_informations = df.CharFilter(field_name='ecolabel_informations', lookup_expr='contains', label='Ecolabel informations')
     startdate = df.DateFilter(field_name='startdate', widget=forms.DateInput(attrs={'type':'date'}))
