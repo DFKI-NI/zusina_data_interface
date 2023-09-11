@@ -59,6 +59,7 @@ class ProductDetailAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, *args, **kwarg):
+        '''This defines what happens when a user sends a get request.'''
         queryset = Product.objects.all()
 
         serializer = ProductSerializer(queryset, many=True)
