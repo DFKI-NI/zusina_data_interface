@@ -10,13 +10,7 @@ Mit Django kann dann eine REST API erstellt werden, dafür muss ein Django Proje
 django-admin startproject zusina_api
 ```
 
- und es müssen einige Programme installiert werden.
-
-```
-pip install djangorestframework 
-pip install django-filter  # Bibliothek zum erstellen von Filtern für die Daten
-pip install pandas
-```
+ und es müssen einige Programme installiert werden, die in der requirements.txt zu finden sind.
 
 ## Implementation
 In dem Projektordner zusina_api müsste eine Datei namens manage.py und ein Ordner zusina_api sein. 
