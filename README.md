@@ -87,6 +87,9 @@ python manage.py runserver
 
 ## Verwendung
 
+## Förderung
+Die Dateien in diesem Repository sind im Rahmen des Projekts ZuSiNa entsanden, das vom Bundesministerium für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz (BMUV) gefördert wird (FKZ: 67KI21009A).
+
 
 
 
