@@ -80,6 +80,15 @@ python manage.py runserver
 ```
 
 ## Verwendung
+Der Server läuft auf dem Port 8000 im Pfad /api, lokal wäre dies localhost:8000/api. Dort ist eine grafische Oberfläche zu finden, um die Funktionen der Schnittstelle zu testen. Einloggen kann sich der Nutzer mit dem zuvor erstellten Superuser. Über den Button Options oben rechts können verschiedene Filter gesetzt werden.
+
+Zur Verwendung ohne grafische Oberfläche kann z.B. das Kommandozeilenprogramm cURL verwendet werden. Ein GET-Request ohne Parameter liefert die Einträge aus der Datenbank zurück. Dabei muss Nutzer sich mit Nutzername, Passwort oder ein Token authentifizieren. Token können unter /admin erstellt werden. 
+
+```
+curl http://zusina.ni.dfki.de:8000/api/ -H "Authorization Token <key>"
+```
+
+
 
 ## Förderung
 Die Dateien in diesem Repository wurden im Rahmen des Forschungsprojekts ZuSiNa, das vom Bundesministerium für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz (BMUV) gefördert wird (FKZ: 67KI21009A) vom DFKI entwickelt. An dem ersten Arbeitspaket, in dem diese Dateien entwickelt wurden, sind die Institute ConPolicy (Leitung von AP1), Fraunhofer CERRI und DFKI beteiligt. Weitere Informationen sind auf https://www.zusina-projekt.de/ zu finden. 
