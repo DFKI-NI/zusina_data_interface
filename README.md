@@ -91,7 +91,16 @@ curl http://zusina.ni.dfki.de:8000/api/ -H "Authorization Token <key>"
 Sollen die Ergebnisse gefilter werden können die vorhandenen Parameter verwendet werden, diese sind: 
 
 
-
+* is_manufacturer - ist die Marke auch der Hersteller?
+* brands - die Marke des Produkts
+* product_description - Name und Beschreibung des Produkts
+* productid - eindeutige Identifizierungsmöglichkeit des Produkts
+* brandID - eindeutige Identifizierungsmöglichkeit des Herstellers
+* ecolabel - Das Umweltsiegel
+* ecolabel_informations - Informationen zu dem Umweltsiegel
+* startdate - wann das Produkt zertifiziert wurde
+* enddate - wann das Siegel abläuft
+  
 
 
 ## Förderung
