@@ -80,13 +80,17 @@ python manage.py runserver
 ```
 
 ## Verwendung
-Der Server läuft auf dem Port 8000 im Pfad /api, lokal wäre dies localhost:8000/api. Dort ist eine grafische Oberfläche zu finden, um die Funktionen der Schnittstelle zu testen. Einloggen kann sich der Nutzer mit dem zuvor erstellten Superuser. Über den Button Options oben rechts können verschiedene Filter gesetzt werden.
+In dieser Dokumentation verwenden wir als Adresse die Beispieladresse zusina.ni.dfki.de. Wird der Server gestartet, läuft dieser auf dem Port 8000 im Pfad /api (zusina.ni.dfki.de:8000/api). Dort ist eine grafische Oberfläche zu finden, um die Funktionen der Schnittstelle zu testen. Einloggen kann sich der Nutzer mit dem zuvor erstellten Superuser. Über den Button Options oben rechts können verschiedene Filter gesetzt werden.
 
 Zur Verwendung ohne grafische Oberfläche kann z.B. das Kommandozeilenprogramm cURL verwendet werden. Ein GET-Request ohne Parameter liefert die Einträge aus der Datenbank zurück. Dabei muss Nutzer sich mit Nutzername, Passwort oder ein Token authentifizieren. Token können unter /admin erstellt werden. 
 
 ```
 curl http://zusina.ni.dfki.de:8000/api/ -H "Authorization Token <key>"
 ```
+
+Sollen die Ergebnisse gefilter werden können die vorhandenen Parameter verwendet werden, diese sind: 
+
+
 
 
 
