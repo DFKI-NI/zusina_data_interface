@@ -92,10 +92,10 @@ Sollen die Ergebnisse gefilter werden können die vorhandenen Parameter verwende
 
 
 * is_manufacturer - ist die Marke auch der Hersteller?
-* brands - die Marke des Produkts
+* brand - die Marke des Produkts
 * product_description - Name und Beschreibung des Produkts
 * productid - eindeutige Identifizierungsmöglichkeit des Produkts
-* brandID - eindeutige Identifizierungsmöglichkeit des Herstellers
+* brandid - eindeutige Identifizierungsmöglichkeit des Herstellers
 * ecolabel - Das Umweltsiegel
 * ecolabel_informations - Informationen zu dem Umweltsiegel
 * startdate - wann das Produkt zertifiziert wurde
@@ -105,6 +105,18 @@ Um beispielsweise nach einem Hersteller zu filtern kann folgendes Kommando verwe
 
 ```
 curl http://zusina.ni.dfki.de:8000/api/?brand=Tesbrand -H "Authorization Token <key>"
+```
+
+Auch mehrere Filtern können gesetzt werden:
+
+```
+curl http://zusina.ni.dfki.de:8000/api/?brand=Tesbrand&ecolabel=Testlabel -H "Authorization Token <key>"
+```
+
+Eine Suche über alle Felder ist ebenfalls möglich mit:
+
+```
+curl http://zusina.ni.dfki.de:8000/api/?search=Testsuche -H "Authorization Token <key>"
 ```
 
 ## Förderung
