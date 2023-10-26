@@ -101,7 +101,11 @@ Sollen die Ergebnisse gefilter werden können die vorhandenen Parameter verwende
 * startdate - wann das Produkt zertifiziert wurde
 * enddate - wann das Siegel abläuft
   
+Um beispielsweise nach einem Hersteller zu filtern kann folgendes Kommando verwendet werden:
 
+```
+curl http://zusina.ni.dfki.de:8000/api/?brand=Tesbrand -H "Authorization Token <key>"
+```
 
 ## Förderung
 Die Dateien in diesem Repository wurden im Rahmen des Forschungsprojekts ZuSiNa, das vom Bundesministerium für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz (BMUV) gefördert wird (FKZ: 67KI21009A) vom DFKI entwickelt. An dem ersten Arbeitspaket, in dem diese Dateien entwickelt wurden, sind die Institute ConPolicy (Leitung von AP1), Fraunhofer CERRI und DFKI beteiligt. Weitere Informationen sind auf https://www.zusina-projekt.de/ zu finden. 
