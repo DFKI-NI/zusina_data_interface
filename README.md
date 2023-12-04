@@ -121,6 +121,8 @@ Eine Suche über alle Felder ist ebenfalls möglich mit:
 curl http://zusina.ni.dfki.de:8000/api/?search=Testsuche -H "Authorization Token <key>"
 ```
 
+Die Datei Client.py enthält ein kleines Programm, das es Nutzern ermöglicht eine CSV-Datei an einen Server zu schicken und so Siegelinformationen hinzuzufügen. 
+
 ## Förderung
 Die Dateien in diesem Repository wurden im Rahmen des Forschungsprojekts ZuSiNa, das vom Bundesministerium für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz (BMUV) gefördert wird (FKZ: 67KI21009A) vom DFKI entwickelt. An dem ersten Arbeitspaket, in dem diese Dateien entwickelt wurden, sind die Institute ConPolicy (Leitung von AP1), Fraunhofer CERRI und DFKI beteiligt. Weitere Informationen sind auf https://www.zusina-projekt.de/ zu finden. 
 
